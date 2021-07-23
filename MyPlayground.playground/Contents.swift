@@ -2,16 +2,12 @@ import UIKit
 import Foundation
 
 func correct(_ timeString: String?) -> String? {
-
-    //logic to format timeString
-    let timeFormatter = DateFormatter()
-    timeFormatter.dateFormat = "hh:mm:ss"
   
     //array that contains each number in timeString
     var arrTime = timeString?.components(separatedBy: ":").compactMap{ Int($0) } ?? [0,0,0]
   
     //logic to format valid time string numbers if > 59
-    if arrTime != [0,0,0] && timeFormatter.dateFormat == "hh:mm:ss" && timeString != ""  && arrTime != [] {
+    if arrTime != [0,0,0] && timeString != ""  && arrTime != [] {
     for i in 1..<arrTime.count {
         if arrTime[i] > 59 && arrTime.count != 1{
         arrTime[i] = arrTime[i] - 60
@@ -42,4 +38,4 @@ func correct(_ timeString: String?) -> String? {
    }
 }
 
-correct("19:99:99")
+correct("19:01:99")
